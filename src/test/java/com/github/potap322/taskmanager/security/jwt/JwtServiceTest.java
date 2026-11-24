@@ -1,5 +1,6 @@
-package com.github.potap322.taskmanager.security;
+package com.github.potap322.taskmanager.security.jwt;
 
+import com.github.potap322.taskmanager.security.CustomUserDetails;
 import com.github.potap322.taskmanager.user.User;
 import com.github.potap322.taskmanager.user.UserRole;
 import org.junit.jupiter.api.Test;
@@ -16,13 +17,13 @@ class JwtServiceTest {
         return new JwtService(new JwtProperties(SECRET, expiration));
     }
 
-    private UserPrincipal principal(String username) {
+    private CustomUserDetails principal(String username) {
         User user = new User();
         user.setId(1L);
         user.setUsername(username);
         user.setPassword("irrelevant");
         user.setRole(UserRole.USER);
-        return new UserPrincipal(user);
+        return new CustomUserDetails(user);
     }
 
     @Test

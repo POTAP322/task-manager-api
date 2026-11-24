@@ -1,4 +1,4 @@
-package com.github.potap322.taskmanager.tasks;
+package com.github.potap322.taskmanager.task;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

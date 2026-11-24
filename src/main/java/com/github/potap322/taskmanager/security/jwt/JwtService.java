@@ -1,5 +1,6 @@
-package com.github.potap322.taskmanager.security;
+package com.github.potap322.taskmanager.security.jwt;
 
+import com.github.potap322.taskmanager.security.CustomUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -25,11 +26,11 @@ public class JwtService {
         this.key = Keys.hmacShaKeyFor(properties.secret().getBytes(StandardCharsets.UTF_8));
     }
 
-    public String generateToken(UserPrincipal principal) {
+    public String generateToken(CustomUserDetails userDetails) {
         Instant now = Instant.now();
         return Jwts.builder()
-                .subject(principal.getUsername())
-                .claim(CLAIM_USER_ID, principal.getId())
+                .subject(userDetails.getUsername())
+                .claim(CLAIM_USER_ID, userDetails.getId())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plus(properties.expiration())))
                 .signWith(key)
@@ -42,7 +43,9 @@ public class JwtService {
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         try {
-            return parse(token).getSubject().equals(userDetails.getUsername());
+            return parse(token)
+                    .getSubject()
+                    .equals(userDetails.getUsername());
         } catch (JwtException | IllegalArgumentException ex) {
             return false;
         }

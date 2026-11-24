@@ -1,4 +1,4 @@
-package com.github.potap322.taskmanager.tasks;
+package com.github.potap322.taskmanager.task;
 
 import com.github.potap322.taskmanager.user.User;
 import jakarta.persistence.*;

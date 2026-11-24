@@ -1,5 +1,6 @@
-package com.github.potap322.taskmanager.security;
+package com.github.potap322.taskmanager.security.jwt;
 
+import com.github.potap322.taskmanager.security.CustomUserDetailsService;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

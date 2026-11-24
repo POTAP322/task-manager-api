@@ -1,5 +1,7 @@
 package com.github.potap322.taskmanager.security;
 
+import com.github.potap322.taskmanager.security.jwt.JwtAuthenticationFilter;
+import com.github.potap322.taskmanager.security.jwt.JwtService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;

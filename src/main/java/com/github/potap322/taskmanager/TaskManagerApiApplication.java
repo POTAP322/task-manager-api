@@ -1,6 +1,6 @@
 package com.github.potap322.taskmanager;
 
-import com.github.potap322.taskmanager.security.JwtProperties;
+import com.github.potap322.taskmanager.security.jwt.JwtProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

@@ -1,4 +1,4 @@
-package com.github.potap322.taskmanager.security;
+package com.github.potap322.taskmanager.security.jwt;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
